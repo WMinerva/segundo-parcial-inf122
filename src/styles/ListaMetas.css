@@ -1,0 +1,22 @@
+.main {
+  display: flex;
+  flex-direction: column-reverse;
+}
+.boton-agregar {
+  background-color: #117a7a;
+  color: white;
+}
+li {
+  background-color: white;
+  width: 587px;
+}
+.metas-container {
+  /* border: 3px solid yellow; */
+  /* // como centrar el contenido de un div */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ul {
+  align-items: center;
+}
