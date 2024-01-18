@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import Title from "./Title";
 import trash from "../img/trash.svg";
+import checkCircle from "../img/check-circle.svg";
 import "../styles/ListaMetas.css";
 
 const ListaMetas = () => {
@@ -33,26 +34,34 @@ const ListaMetas = () => {
           {metas.map((meta, index) => (
             <li key={index} className={meta.completada ? "completada" : ""}>
               {meta.texto}
-              <button onClick={() => marcarComoCompletada(index)}>
-                {meta.completada ? "Desmarcar" : "Marcar"}
-              </button>
-              <button onClick={() => eliminarMeta(index)}>
-                <img src={trash} alt="basuuuura" />
-              </button>
+              <div className="check-botons">
+                <button onClick={() => marcarComoCompletada(index)}>
+                  {meta.completada ? (
+                    <img src={checkCircle} alt="heeeecho" />
+                  ) : (
+                    "Marcar"
+                  )}
+                </button>
+                <button onClick={() => eliminarMeta(index)}>
+                  <img src={trash} alt="basuuuura" />
+                </button>
+              </div>
             </li>
           ))}
         </ul>
       </div>
       <div className="entrada-container">
         <Title />
-        <input
-          type="text"
-          value={nuevaMeta}
-          onChange={(e) => setNuevaMeta(e.target.value)}
-        />
-        <button className="boton-agregar" onClick={agregarMeta}>
-          Agregar Meta
-        </button>
+        <div className="input-boton">
+          <input
+            type="text"
+            value={nuevaMeta}
+            onChange={(e) => setNuevaMeta(e.target.value)}
+          />
+          <button className="boton-agregar" onClick={agregarMeta}>
+            Agregar Meta
+          </button>
+        </div>
       </div>
     </div>
   );
